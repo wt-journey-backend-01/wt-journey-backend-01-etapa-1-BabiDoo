@@ -1,15 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Confirmação de Contato</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <h1>Obrigado, <%= name %>!</h1>
-  <p>Recebemos seu e-mail: <strong><%= email %></strong></p>
-  <p>Sua mensagem:</p>
-  <blockquote><pre><%= message %></pre></blockquote>
-  <a href="/index.html">Voltar para a página inicial</a>
+  <div class="container">
+    <div class="message">
+      <h1>Obrigado, <%= name %>!</h1>
+      <p>Recebemos seu e-mail: <strong><%= email %></strong></p>
+      <p>Sua mensagem:</p>
+      <blockquote>
+        <pre><%= message %></pre>
+      </blockquote>
+    </div>
+    <a href="/index.html">Voltar para a página inicial</a>
+  </div>
 </body>
 </html>
