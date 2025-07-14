@@ -124,7 +124,7 @@ button[type="submit"]:hover {
 .ingredient-item button:hover {
   background-color: #c0392b;
 }
-.message {
+.messagem {
   font-size: 1rem;
   padding: 1rem;
   background-color: #e9ffe9;
@@ -134,7 +134,7 @@ button[type="submit"]:hover {
   white-space: pre-wrap;
   overflow-wrap: break-word;
 }
-.message pre {
+.messagem pre {
   white-space: pre-wrap !important;
   overflow-wrap: anywhere;
   word-break: break-all;

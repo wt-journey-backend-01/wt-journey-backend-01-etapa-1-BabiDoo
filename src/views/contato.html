@@ -17,11 +17,11 @@
     <div class="container">
       <form action="/contato" method="POST" id="contact-form">
         <div class="form-group">
-          <label for="name-input">Seu nome:</label>
+          <label for="nome-input">Seu nome:</label>
           <input
             type="text"
-            id="name-input"
-            name="name"
+            id="nome-input"
+            name="nome"
             placeholder="Digite seu nome completo"
             required
           />
@@ -52,7 +52,7 @@
 
         <div class="form-group">
           <label for="subject-input">Sobre o que você quer falar?</label>
-          <select id="subject-input" name="subject" required>
+          <select id="subject-input" name="assunto" required>
             <option value="">Selecione…</option>
             <option value="Dúvida">Dúvida</option>
             <option value="Sugestão">Sugestão</option>
@@ -63,8 +63,8 @@
         <div class="form-group">
           <label for="message-input">Sua mensagem:</label>
           <textarea
-            id="message-input"
-            name="message"
+            id="messagem-input"
+            name="messagem"
             placeholder="Escreva aqui sua mensagem"
             required
           ></textarea>
