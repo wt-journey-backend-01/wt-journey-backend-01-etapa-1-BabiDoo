@@ -39,7 +39,10 @@ app.all('/sugestao', (req, res) => {
 
 
 app.get('/contato', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src', 'views', 'contato.html'));
+  res
+    .status(200)
+    .type('html')
+    .sendFile(path.join(__dirname, 'src', 'views', 'contato.html'));
 });
 
 
