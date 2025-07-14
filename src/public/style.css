@@ -3,49 +3,53 @@
   margin: 0;
   padding: 0;
 }
-
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f0f2f5;
   color: #333;
   line-height: 1.6;
 }
-
-.header,
-.content {
+.container {
   max-width: 600px;
   margin: 2rem auto;
   padding: 1rem 1.5rem;
-  background: #ffffff;
+  background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
 }
-
-.header h1 {
+.container h1 {
   font-size: 1.8rem;
   color: #2c3e50;
   margin-bottom: 0.5rem;
 }
-.header p {
+.container p {
   font-size: 1rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   color: #555;
 }
-
-form#contact-form {
-  margin-top: 1rem;
+form#contact-form,
+form#suggestion-form {
+  max-width: 500px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
 }
-
-.form-group {
-  margin-bottom: 1rem;
+form#contact-form .form-group,
+form#suggestion-form .form-group,
+form#suggestion-form .ingredients {
+  width: 100%;
 }
 .form-group label {
   display: block;
   font-weight: 600;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
   color: #444;
+  text-align: center;
 }
-
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -64,59 +68,62 @@ textarea:focus {
   outline: none;
   border-color: #007bff;
 }
-
 ::placeholder {
   color: #aaa;
 }
-
-button[type="submit"] {
+button[type="submit"],
+#add-ingredient,
+.btn {
   display: inline-block;
   padding: 0.6rem 1.2rem;
   font-size: 1rem;
   font-weight: 600;
   color: #fff;
-  background-color: #007bff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.2s;
 }
+button[type="submit"] {
+  background-color: #007bff;
+}
 button[type="submit"]:hover {
   background-color: #0056b3;
 }
 
-
-.content {
-  margin-top: 1rem;
+#add-ingredient {
+  background-color: #3498db;
+  margin-bottom: 1rem;
 }
-
-
-a {
-  color: #007bff;
+#add-ingredient:hover {
+  background-color: #2980b9;
+}
+.btn {
+  background-color: #2ecc71;
   text-decoration: none;
 }
-a:hover {
-  text-decoration: underline;
+.btn:hover {
+  background-color: #27ae60;
 }
-
-
-@media (max-width: 640px) {
-  .header, .content {
-    margin: 1rem;
-    padding: 1rem;
-  }
+.ingredients {
+  margin-bottom: 1rem;
 }
-
-.container {
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 1rem 1.5rem;
-  background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+.ingredient-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
-
-
+.ingredient-item input {
+  flex: 1;
+}
+.ingredient-item button {
+  padding: 0.3rem 0.6rem;
+  background: #e74c3c;
+  transition: background-color 0.2s;
+}
+.ingredient-item button:hover {
+  background-color: #c0392b;
+}
 .message {
   font-size: 1rem;
   padding: 1rem;
@@ -124,24 +131,77 @@ a:hover {
   border: 1px solid #b2d8b2;
   border-radius: 4px;
   margin-bottom: 1rem;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
-
 .message pre {
   white-space: pre-wrap !important;
   overflow-wrap: anywhere;
+  word-break: break-all;
 }
-
-
-
-.container a {
-  display: inline-block;
-  margin-top: 1rem;
-  font-weight: 600;
+.not-found {
+  text-align: center;
+}
+.not-found h1 {
+  font-size: 2rem;
+  color: #cc0000;
+  margin-bottom: 1rem;
+}
+.not-found p {
+  margin-bottom: 1rem;
+}
+a {
   color: #007bff;
   text-decoration: none;
-  transition: color 0.2s;
 }
-.container a:hover {
-  color: #0056b3;
+a:hover {
   text-decoration: underline;
+}
+@media (max-width: 640px) {
+  .container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+}
+
+body > h1,
+body > p {
+  text-align: center;
+}
+
+
+form#contact-form {
+  max-width: 500px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+form#contact-form .form-group {
+  width: 100%;
+}
+form#contact-form .form-group label {
+  text-align: center;
+}
+form#contact-form .form-group input,
+form#contact-form .form-group select,
+form#contact-form .form-group textarea {
+  margin: 0 auto;
+}
+form#contact-form button[type="submit"] {
+  margin: 0 auto;
+}
+
+
+.container ul {
+ 
+  list-style-position: inside;
+  padding-left: 0;
+  margin: 1rem auto;
+  display: inline-block; 
+  text-align: left;       
+}
+.container li {
+  margin: 0.5rem 0;
 }

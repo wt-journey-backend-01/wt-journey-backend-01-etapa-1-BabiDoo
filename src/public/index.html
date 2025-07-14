@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sugestões DevBurger</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Envie sua Sugestão</h1>
+    <form id="suggestion-form" action="/sugestao" method="GET">
+      <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+      </div>
+
+      <div class="form-group ingredients" id="ingredients-container">
+        <label>Ingredientes:</label>
+      </div>
+
+      <button type="button" id="add-ingredient">+ Adicionar ingrediente</button>
+      <hr style="margin: 1.5rem 0;">
+      <button type="submit">Enviar Sugestão</button>
+      <a href="/contato" class="btn">Precisa de ajuda?</a>
+    </form>
+  </div>
+
+  <script>
+    (function() {
+      const ingredientsContainer = document.getElementById('ingredients-container');
+      const addBtn = document.getElementById('add-ingredient');
+      let count = 0;
+
+      addBtn.addEventListener('click', () => {
+        count++;
+        const div = document.createElement('div');
+        div.className = 'ingredient-item';
+        div.dataset.index = count;
+
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.name = 'ingrediente';
+        input.placeholder = 'Ingrediente ' + count;
+        input.required = true;
+
+        const removeBtn = document.createElement('button');
+        removeBtn.type = 'button';
+        removeBtn.textContent = '✕';
+        removeBtn.title = 'Remover este ingrediente';
+        removeBtn.addEventListener('click', () => {
+          ingredientsContainer.removeChild(div);
+        });
+
+        div.appendChild(input);
+        div.appendChild(removeBtn);
+        ingredientsContainer.appendChild(div);
+      });
+
+      addBtn.click();
+    })();
+  </script>
+</body>
+</html>
