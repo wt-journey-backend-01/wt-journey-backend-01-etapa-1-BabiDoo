@@ -48,9 +48,9 @@ app.get('/contato', (req, res) => {
 
 app.post('/contato', (req, res) => {
   try {
-    const { name, email, message } = req.body;
-    data.push({ name, email, message });
-    return res.status(200).render('confirmation', { name, email, message });
+    const { name, subject, email, message } = req.body;
+    data.push({ name, subject, email, message });
+    return res.status(200).render('confirmation', { name, subject, email, message });
   } catch (error) {
     console.log(`Ops... ${error}}`);
     return res.status(500).send(`Ocorreu um erro ao enviar sua mensagem. Tente novamente`);

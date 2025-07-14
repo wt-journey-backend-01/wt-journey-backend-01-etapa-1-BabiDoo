@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/wt-journey-backend-01/wt-journey-backend-01-etapa-1-BabiDoo#readme",
   "dependencies": {
-    "ejs": "^3.1.10",
     "express": "^5.1.0"
   }
 }
