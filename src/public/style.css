@@ -126,6 +126,13 @@ a:hover {
   margin-bottom: 1rem;
 }
 
+.message pre {
+  white-space: pre-wrap !important;
+  overflow-wrap: anywhere;
+}
+
+
+
 .container a {
   display: inline-block;
   margin-top: 1rem;
