@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Confirmação de Contato</title>
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <div class="container">
     <div class="message">
-      <h1>Obrigado, <%= nome %>!</h1>
-      <p>Assunto: <strong><%= assunto %></strong></p>
-      <p>Recebemos seu e-mail: <strong><%= email %></strong></p>
+      <h1>Obrigado, {{nome}}!</h1>
+      <p>Assunto: <strong>{{assunto}}</strong></p>
+      <p>Recebemos seu e-mail: <strong>{{email}}</strong></p>
       <p>Sua mensagem:</p>
       <blockquote>
-        <pre><%= mensagem %></pre>
+        <pre>{{mensagem}}</pre>
       </blockquote>
     </div>
     <a href="/">Voltar para a página inicial</a>

@@ -1,0 +1,526 @@
+/* DevBurger - Modern CSS Styling */
+
+/* CSS Variables for consistent theming */
+:root {
+  /* Colors - Burger Restaurant Theme */
+  --primary-color: #d2691e;        /* Chocolate orange */
+  --primary-hover: #b8601a;        /* Darker orange */
+  --secondary-color: #8b4513;      /* Saddle brown */
+  --accent-color: #ff6b35;         /* Vibrant orange */
+  --background-color: #faf7f2;     /* Warm cream */
+  --surface-color: #ffffff;        /* Pure white */
+  --text-primary: #2c1810;         /* Dark brown */
+  --text-secondary: #5a3a2b;       /* Medium brown */
+  --text-muted: #8a6b5c;           /* Light brown */
+  --border-color: #e0d5c7;         /* Light tan */
+  --error-color: #dc3545;          /* Red */
+  --success-color: #28a745;        /* Green */
+  
+  /* Typography */
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-size-base: 16px;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-xxl: 2rem;
+  --line-height: 1.6;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+  
+  /* Border radius */
+  --border-radius: 8px;
+  --border-radius-lg: 12px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(44, 24, 16, 0.1);
+  --shadow-md: 0 4px 6px rgba(44, 24, 16, 0.1);
+  --shadow-lg: 0 10px 15px rgba(44, 24, 16, 0.1);
+  
+  /* Transitions */
+  --transition: all 0.3s ease;
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--font-size-base);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  line-height: var(--line-height);
+  color: var(--text-primary);
+  background-color: var(--background-color);
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(210, 105, 30, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255, 107, 53, 0.1) 0%, transparent 50%);
+  min-height: 100vh;
+}
+
+/* Container */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+}
+
+/* Typography */
+h1 {
+  font-size: var(--font-size-xxl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: var(--spacing-md);
+}
+
+p {
+  margin-bottom: var(--spacing-md);
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* Forms */
+form {
+  background: var(--surface-color);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.form-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+  font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-base);
+  font-family: inherit;
+  background-color: var(--surface-color);
+  color: var(--text-primary);
+  transition: var(--transition);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(210, 105, 30, 0.1);
+}
+
+input[type="text"]:invalid:not(:focus),
+input[type="email"]:invalid:not(:focus),
+input[type="tel"]:invalid:not(:focus) {
+  border-color: var(--error-color);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  padding-right: 40px;
+  appearance: none;
+}
+
+/* Ingredients styling */
+.ingredients {
+  position: relative;
+}
+
+.ingredient-item {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
+  align-items: center;
+}
+
+.ingredient-item input {
+  flex: 1;
+}
+
+.ingredient-item button {
+  background: var(--error-color);
+  color: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.ingredient-item button:hover {
+  background: #c82333;
+  transform: scale(1.05);
+}
+
+/* Buttons */
+button,
+.btn {
+  display: inline-block;
+  padding: var(--spacing-md) var(--spacing-xl);
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  font-family: inherit;
+}
+
+button:hover,
+.btn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+button:active,
+.btn:active {
+  transform: translateY(0);
+}
+
+button[type="submit"] {
+  background: var(--accent-color);
+  font-size: var(--font-size-lg);
+  padding: var(--spacing-lg) var(--spacing-xxl);
+  margin-right: var(--spacing-md);
+}
+
+button[type="submit"]:hover {
+  background: #e55a2b;
+}
+
+#add-ingredient {
+  background: var(--secondary-color);
+  font-size: 0.9rem;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+#add-ingredient:hover {
+  background: #6d3410;
+}
+
+/* Links */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+/* Message/confirmation styling */
+.message {
+  background: var(--surface-color);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  margin-bottom: var(--spacing-lg);
+  border-left: 4px solid var(--success-color);
+}
+
+.message h1 {
+  color: var(--success-color);
+  margin-bottom: var(--spacing-lg);
+}
+
+.message p {
+  text-align: left;
+  margin-bottom: var(--spacing-md);
+}
+
+.message p strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Blockquote styling */
+blockquote {
+  background: var(--background-color);
+  border-left: 4px solid var(--primary-color);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+blockquote pre {
+  font-family: inherit;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: var(--line-height);
+}
+
+/* List styling */
+ul {
+  background: var(--surface-color);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--spacing-lg);
+}
+
+ul li {
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  position: relative;
+  padding-left: var(--spacing-lg);
+}
+
+ul li:last-child {
+  border-bottom: none;
+}
+
+ul li::before {
+  content: "🍔";
+  position: absolute;
+  left: 0;
+  top: var(--spacing-sm);
+}
+
+/* Horizontal rule */
+hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--border-color), transparent);
+  margin: var(--spacing-lg) 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: var(--spacing-md);
+  }
+  
+  form {
+    padding: var(--spacing-lg);
+  }
+  
+  h1 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .ingredient-item {
+    flex-wrap: wrap;
+  }
+  
+  .ingredient-item input {
+    min-width: 200px;
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    margin-bottom: var(--spacing-md);
+    margin-right: 0;
+  }
+  
+  .btn {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --font-size-base: 14px;
+  }
+  
+  .container {
+    padding: var(--spacing-sm);
+  }
+  
+  form {
+    padding: var(--spacing-md);
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  textarea {
+    padding: var(--spacing-sm);
+  }
+  
+  .ingredient-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .ingredient-item button {
+    width: auto;
+    height: auto;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus styles for better accessibility */
+button:focus-visible,
+.btn:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .container {
+    max-width: none;
+    padding: 0;
+  }
+  
+  form,
+  .message {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+  
+  button,
+  .btn {
+    display: none;
+  }
+}
+
+/* Loading states */
+form.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+form.loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Success/error states */
+.form-group.success input,
+.form-group.success select,
+.form-group.success textarea {
+  border-color: var(--success-color);
+}
+
+.form-group.error input,
+.form-group.error select,
+.form-group.error textarea {
+  border-color: var(--error-color);
+}
+
+.error-message {
+  color: var(--error-color);
+  font-size: 0.875rem;
+  margin-top: var(--spacing-xs);
+  display: block;
+}
+
+.success-message {
+  color: var(--success-color);
+  font-size: 0.875rem;
+  margin-top: var(--spacing-xs);
+  display: block;
+}
+
+.form-actions {
+  display: flex;               /* ativa flexbox */
+  justify-content: center;     /* centra horizontalmente */
+  align-items: center;         /* centra verticalmente, se o botão e link tiverem alturas diferentes */
+  gap: var(--spacing-lg);      /* distância entre os dois */
+  margin-top: var(--spacing-lg); /* separação em relação ao <hr> */
+}

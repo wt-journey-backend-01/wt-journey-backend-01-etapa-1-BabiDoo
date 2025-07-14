@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "nome": "X-Burger",
+    "ingredientes": ["pão", "hambúrguer", "queijo"]
+  },
+  {
+    "id": 2,
+    "nome": "X-Salada",
+    "ingredientes": ["pão", "hambúrguer", "alface", "tomate"]
+  },
+  {
+    "id": 3,
+    "nome": "Veggie-Burger",
+    "ingredientes": ["pão", "hambúrguer vegetal", "alface"]
+  }
+]
