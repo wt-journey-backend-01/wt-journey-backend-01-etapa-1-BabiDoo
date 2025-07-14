@@ -32,7 +32,7 @@ app.get('/api/lanches', (req, res) => {
 });
 
 app.all('/api/lanches', (req, res) => {
-  res.status(405).send('Método não permitido');
+  res.status(405).send('Forbidden');
 });
 
 app.get('/sugestao', (req, res) => {
@@ -61,9 +61,9 @@ app.get('/contato', (req, res) => {
 
 app.post('/contato', (req, res) => {
   try {
-    const { nome, assunto, email, messagem } = req.body;
-    data.push({ nome, assunto, email, messagem });
-    return res.status(200).render('confirmation', { nome, assunto, email, messagem });
+    const { nome, assunto, email, mensagem } = req.body;
+    data.push({ nome, assunto, email, mensagem });
+    return res.status(200).render('confirmation', { nome, assunto, email, mensagem });
   } catch (error) {
     console.log(`Ops... ${error}}`);
     return res.status(500).send(`Ocorreu um erro ao enviar sua mensagem. Tente novamente`);
