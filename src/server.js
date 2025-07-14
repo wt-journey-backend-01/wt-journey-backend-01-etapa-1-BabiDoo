@@ -33,7 +33,7 @@ app.get('/api-contato', (req, res) => {
 });
 
 app.use((req, res) =>{
-  res.status(404).send('Página não encontrada');
+  res.status(404).redirect('https://http.dog/404.jpg');
 });
 
 app.listen(PORT, () => {
