@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const mostraProdutos = require('./mostra-produtos');
 const fs = require('fs').promises; //para ler os arquivos
 const app = express();
 const PORT = 3000;
@@ -9,11 +10,13 @@ app.use(express.urlencoded({ extended: true })); //para os formularios
 app.use(express.json()); //para aceitar tbm em formato json
 
 
-app.get('/', (req, res) => {
-  res
-    .status(200)
-    .type('html')
-    .sendFile(path.join(__dirname,'views', 'index.html'));
+app.get('/', async (req, res) => {
+  try {
+    res.sendFile(path.join(__dirname, 'views', 'index.html'));
+  } catch (error) {
+    console.error(`Ops... ${error}`);
+    res.status(500).send('Erro interno ao carregar a página');
+  }
 });
 
 
@@ -25,10 +28,11 @@ app.get('/api/lanches', async (req, res) => {
   try {
     const dados = await fs.readFile(path.join(__dirname, 'public', 'data', 'lanches.json'), 'utf8');
     const lanches = JSON.parse(dados);
+    const produtos = mostraProdutos(lanches);
     res.status(200).json(lanches);
   } catch (err) {
     console.error('Erro ao ler lanches.json:', err);
-    res.status(500).send('Erro ao buscar os lanches');
+    res.status(500).json('Erro ao buscar os lanches');
   }
 });
 
@@ -39,7 +43,7 @@ app.all('/api/lanches', (req, res) => {
 app.get('/sugestao', async (req, res) => {
   try { 
   const nome = req.query.nome;
-  let ingredientes = req.query.ingrediente || [];
+  let ingredientes = req.query.ingredientes || [];
   if (!Array.isArray(ingredientes)) ingredientes = [ingredientes];
   const listaLi = ingredientes.map(i => `<li>${i}</li>`).join('');
   let html = await fs.readFile(path.join(__dirname, 'views', 'sugestao.html'),'utf8');

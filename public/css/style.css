@@ -524,3 +524,7 @@ form.loading::after {
   gap: var(--spacing-lg);      /* distância entre os dois */
   margin-top: var(--spacing-lg); /* separação em relação ao <hr> */
 }
+
+#lista-lanches ul { padding-left: 1rem; }
+    #lista-lanches li { margin-bottom: .25rem; }
+    .ingredient-item button { margin-left: .5rem; }
