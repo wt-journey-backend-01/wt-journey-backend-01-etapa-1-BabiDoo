@@ -8,11 +8,21 @@
   </head>
   <body>
     <div class="container">
+      <h2>Cardápio de Lanches</h2>
+      <ul id="lanches-list"></ul>
+    </div>
+    <div class="container">
       <h1>Envie sua Sugestão</h1>
       <form id="suggestion-form" action="/sugestao" method="GET">
         <div class="form-group">
           <label for="nome">Nome:</label>
-          <input type="text" id="nome" name="nome" placeholder="Nome Completo" required />
+          <input
+            type="text"
+            id="nome"
+            name="nome"
+            placeholder="Nome Completo"
+            required
+          />
         </div>
 
         <div class="form-group ingredients" id="ingredients-container">
@@ -70,6 +80,27 @@
 
         addBtn.click();
       })();
+
+      async function carregarLanches() {
+        try {
+          const res = await fetch("/api/lanches");
+          if (!res.ok) throw new Error("Falha ao carregar lanches");
+          const lanches = await res.json();
+          const lista = document.getElementById("lanches-list");
+
+          lanches.forEach((lanche) => {
+            const li = document.createElement("li");
+            li.textContent = `${lanche.nome} – ${lanche.ingredientes.join(
+              ", "
+            )}`;
+            lista.appendChild(li);
+          });
+        } catch (err) {
+          console.error(err);
+        }
+      }
+
+      carregarLanches();
     </script>
   </body>
 </html>
