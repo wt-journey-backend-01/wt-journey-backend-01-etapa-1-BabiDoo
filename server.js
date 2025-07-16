@@ -4,9 +4,78 @@ const app = express();
 const PORT = 3000;
 const data = []; //Array para guardar todas as submissoes
 const lanches = [
-  { id: 1, nome: 'X-Burger', ingredientes: ['pão', 'hambúrguer', 'queijo'] },
-  { id: 2, nome: 'X-Salada', ingredientes: ['pão', 'hambúrguer', 'alface', 'tomate'] },
-  { id: 3, nome: 'Veggie-Burger', ingredientes: ['pão', 'hambúrguer vegetal', 'alface'] }
+  {
+    "id": 1,
+    "nome": "Stack Overflow Supreme",
+    "ingredientes": [
+      "pão brioche",
+      "hambúrguer Wagyu 180 g",
+      "queijo cheddar inglês maturado",
+      "cebola caramelizada no bourbon",
+      "aioli de trufa negra",
+      "bacon crispy artesanal"
+    ]
+  },
+  {
+    "id": 2,
+    "nome": "Null Pointer Deluxe",
+    "ingredientes": [
+      "pão de malte",
+      "hambúrguer de picanha dry‑aged 200 g",
+      "foie gras grelhado",
+      "queijo gruyère",
+      "maionese de vinho do Porto",
+      "rúcula selvagem"
+    ]
+  },
+  {
+    "id": 3,
+    "nome": "Bytecode Truffle",
+    "ingredientes": [
+      "pão brioche de carvão ativado",
+      "hambúrguer Black Angus 200 g",
+      "queijo camembert",
+      "geleia de pimenta jalapeño",
+      "chips de presunto de Parma",
+      "aioli de alho confitado"
+    ]
+  },
+  {
+    "id": 4,
+    "nome": "Full Stack Tower",
+    "ingredientes": [
+      "pão brioche artesanal duplo",
+      "2 hambúrgueres Wagyu 150 g",
+      "queijo gouda defumado",
+      "cogumelos porcini salteados",
+      "redução de balsâmico",
+      "bacon de javali"
+    ]
+  },
+  {
+    "id": 5,
+    "nome": "Merge Conflict BBQ",
+    "ingredientes": [
+      "pão australiano",
+      "hambúrguer de short‑rib 200 g",
+      "queijo raclette",
+      "onion rings empanados",
+      "barbecue de whisky",
+      "picles caseiro"
+    ]
+  },
+  {
+    "id": 6,
+    "nome": "Green Algorithm (Vegetariano)",
+    "ingredientes": [
+      "pão integral de ervas",
+      "hambúrguer vegetal de grão‑de‑bico e espinafre",
+      "queijo de cabra",
+      "tomate heirloom",
+      "rúcula",
+      "pesto de manjericão e nozes"
+    ]
+  }
 ];
 app.use(express.static(path.join(__dirname,'src', 'public'))); //para servir arquivos estaticos em public
 app.use(express.urlencoded({ extended: true }));
